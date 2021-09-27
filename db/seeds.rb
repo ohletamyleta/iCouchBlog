@@ -1,13 +1,18 @@
 require 'faker'
+require 'database_cleaner'
 
-# (1..10).each do |id|
-#   User.create!(
-#     id: id,
-#     name: Faker::Name.unique.name,
-#     email: Faker::Internet.unique.email,
-#     password: "password"
-#     )
-# end
+
+DatabaseCleaner.clean_with(:truncation)
+
+
+(1..10).each do |id|
+  User.create!(
+    id: id,
+    name: Faker::Name.unique.name,
+    email: Faker::Internet.unique.email,
+    password: "password"
+    )
+end
 
 (1..10)
 .each do |id|
